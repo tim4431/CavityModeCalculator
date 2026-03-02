@@ -9,16 +9,14 @@ It can be accessed here:
 The repository includes a static browser version of the cavity viewer:
 
 - `index.html`
-- `mode-scan.html`
 - `styles.css`
 - `cavity-core.js`
 - `app.js`
-- `mode-scan.js`
 - `.nojekyll`
 
 ### Browser Features
 
-The browser app has two linked views:
+The browser app view:
 
 1. `index.html`
    Main cavity viewer for:
@@ -26,18 +24,6 @@ The browser app has two linked views:
    - wavelength and refractive index
    - cavity mode profile
    - `g1-g2` stability diagram
-
-2. `mode-scan.html`
-   Mode-matching and scan view for:
-   - camera intensity
-   - cavity transmission scan
-   - input beam waist and ROC
-   - `x` and `y` offsets from `0` to `1 mm` with `1 um` step
-   - scan range in `FSR` from `1` to `5` with step `1`
-   - `Max HG order` to set maximum order of the simulated Hermite-Gauss mode
-
-The `Open mode scan` button on the main viewer passes the current cavity parameters to the scan page.
-The `Back to viewer` link preserves those same cavity parameters when returning to the main page.
 
 ### Use Locally
 
@@ -53,8 +39,7 @@ Recommended flow:
 
 1. Open `index.html`
 2. Set `R1`, `R2`, `L`, wavelength, and `n_center`
-3. Click `Open mode scan`
-4. Adjust the beam and scan controls
+3. Inspect the cavity mode and stability plots
 
 ### Publish to GitHub Pages
 

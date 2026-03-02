@@ -10,8 +10,8 @@
   });
 
   const CAVITY_LIMITS = Object.freeze({
-    r1Mm: { min: 1, max: 1000 },
-    r2Mm: { min: 1, max: 1000 },
+    r1Mm: { min: 0, max: 1000 },
+    r2Mm: { min: 0, max: 1000 },
     lMm: { min: 1, max: 1000 },
     wavelengthNm: { min: 400, max: 2000 },
     nCenter: { min: 1.0, max: 3.0 },
@@ -55,15 +55,6 @@
       wavelengthNm: params.get("wavelengthNm"),
       nCenter: params.get("nCenter"),
     });
-  }
-
-  function buildModeScanUrl(baseHref, cavityState) {
-    const url = new URL("mode-scan.html", baseHref);
-    const cleanState = sanitizeCavityState(cavityState);
-    Object.entries(cleanState).forEach(([key, value]) => {
-      url.searchParams.set(key, String(value));
-    });
-    return url.toString();
   }
 
   function buildViewerUrl(baseHref, cavityState) {
@@ -191,7 +182,6 @@
     sanitizeCavityState,
     readCavityStateFromSearch,
     buildViewerUrl,
-    buildModeScanUrl,
     computeCavityMode,
     stabilityLabel,
   });
