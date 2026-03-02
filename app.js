@@ -7,7 +7,6 @@ const {
   computeCavityMode,
   stabilityLabel,
   readCavityStateFromSearch,
-  buildModeScanUrl,
 } = window.CavityCore;
 
 const DEFAULT_STATE = {
@@ -16,8 +15,8 @@ const DEFAULT_STATE = {
 };
 
 const geometryDefs = [
-  { key: "r1Mm", label: "R1", min: 1, max: 1000, step: 1, unit: "mm" },
-  { key: "r2Mm", label: "R2", min: 1, max: 1000, step: 1, unit: "mm" },
+  { key: "r1Mm", label: "R1", min: 0, max: 1000, step: 1, unit: "mm" },
+  { key: "r2Mm", label: "R2", min: 0, max: 1000, step: 1, unit: "mm" },
   { key: "lMm", label: "Length L", min: 1, max: 1000, step: 1, unit: "mm" },
 ];
 
@@ -42,7 +41,6 @@ const stabilityStatus = document.getElementById("stabilityStatus");
 const profileCanvas = document.getElementById("profileCanvas");
 const stabilityCanvas = document.getElementById("stabilityCanvas");
 const resetButton = document.getElementById("resetButton");
-const openModeScanButton = document.getElementById("openModeScanButton");
 
 function applyInitialStateFromUrl() {
   if (window.location.search) {
@@ -689,16 +687,11 @@ function resetDefaults() {
   render();
 }
 
-function openModeScan() {
-  window.location.href = buildModeScanUrl(window.location.href, state);
-}
-
 function init() {
   applyInitialStateFromUrl();
   geometryDefs.forEach(createCenteredControl);
   opticsDefs.forEach(createLinearControl);
   resetButton.addEventListener("click", resetDefaults);
-  openModeScanButton.addEventListener("click", openModeScan);
   window.addEventListener("pageshow", () => {
     if (!window.location.search) {
       applyInitialStateFromUrl();
