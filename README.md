@@ -4,7 +4,7 @@
 
 It can be accessed here:
 
-[https://avkgithub1.github.io/CavityModeViewer](https://avkgithub1.github.io/CavityModeViewer)
+[https://tim4431.github.io/CavityModeCalculator/](https://tim4431.github.io/CavityModeCalculator/)
 
 The repository includes a static browser version of the cavity viewer:
 
@@ -53,10 +53,10 @@ This repo now includes a GitHub Actions workflow at `.github/workflows/deploy-pa
 The workflow uploads the repository root as a static site and deploys it to GitHub Pages automatically.
 The `.nojekyll` file is kept so GitHub Pages serves the static files directly without trying to run Jekyll.
 
-For a project repository, the site URL is typically:
+For this project repository, the site URL is:
 
 ```text
-https://<your-github-username>.github.io/<repository-name>/
+https://tim4431.github.io/CavityModeCalculator/
 ```
 
 ## Python Version
