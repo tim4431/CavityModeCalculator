@@ -4,12 +4,20 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Redirecting…</title>
-    <meta http-equiv="refresh" content="0; url=./">
-    <script>
-      window.location.replace(new URL("./", window.location.href).href);
-    </script>
   </head>
   <body>
-    Redirecting to the site home…
+    <h1>Redirecting…</h1>
+    <p>If you are not redirected, <a id="homeLink" href="/">return to the home page</a>.</p>
+    <script>
+      const repoRoot =
+        window.location.hostname === "127.0.0.1" || window.location.hostname === "localhost"
+          ? "/"
+          : "/CavityModeCalculator/";
+      const homeLink = document.getElementById("homeLink");
+      if (homeLink) {
+        homeLink.href = repoRoot;
+      }
+      window.location.replace(repoRoot);
+    </script>
   </body>
 </html>
